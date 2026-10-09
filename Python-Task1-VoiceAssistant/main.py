@@ -34,11 +34,11 @@ def listen():
             return command.lower()
 
         except sr.WaitTimeoutError:
-            print("No speech detected.")
+            speak("I did not hear anything,please try again")
             return ""
 
         except sr.UnknownValueError:
-            speak("Sorry, I could not understand you.")
+            speak("Sorry, I could not understand you,please repeat")
             return ""
 
         except sr.RequestError:
