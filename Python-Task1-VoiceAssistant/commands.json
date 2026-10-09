@@ -1,0 +1,18 @@
+{
+    "commands": [
+        {
+            "phrases": [
+                "open github",
+                "github"
+            ],
+            "url": "https://github.com"
+        },
+        {
+            "phrases": [
+                "open linkedin",
+                "linkedin"
+            ],
+            "url": "https://www.linkedin.com"
+        }
+    ]
+}
