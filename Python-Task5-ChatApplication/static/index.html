@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+    <title>Connect — Chat Application</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section id="auth-panel" class="auth-card">
+            <div class="brand-mark">C</div>
+            <h1>Connect</h1>
+            <p class="subtitle">Your space to connect and chat.</p>
+
+            <div class="auth-tabs">
+                <button id="login-tab" class="tab active" type="button">Login</button>
+                <button id="register-tab" class="tab" type="button">Create account</button>
+            </div>
+
+            <form id="auth-form">
+                <label for="username">Username</label>
+                <input id="username" name="username" minlength="3" maxlength="24"
+                       pattern="[A-Za-z0-9_]+" autocomplete="username"
+                       placeholder="Choose a username" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password"
+                       minlength="8" maxlength="128" autocomplete="current-password"
+                       placeholder="At least 8 characters" required>
+
+                <button id="auth-submit" class="primary-btn" type="submit">Login</button>
+                <p id="auth-status" class="status" role="status"></p>
+            </form>
+        </section>
+
+        <section id="chat-panel" class="chat-layout hidden">
+            <aside class="sidebar">
+                <div class="brand-row">
+                    <div class="brand-mark small">C</div>
+                    <div>
+                        <h2>Connect</h2>
+                        <p class="subtitle">Team chat</p>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <span class="avatar" id="my-avatar">U</span>
+                    <div class="profile-info">
+                        <strong id="my-name">User</strong>
+                        <span class="online-label">● Online</span>
+                    </div>
+                    <button id="logout-btn" class="ghost-btn" type="button">Log out</button>
+                </div>
+
+                <label for="room-select">Chat room</label>
+                <select id="room-select">
+                    <option value="general"># general</option>
+                    <option value="technology"># technology</option>
+                    <option value="random"># random</option>
+                </select>
+
+                <div class="sidebar-heading">ONLINE MEMBERS</div>
+                <ul id="online-users" class="online-users"></ul>
+                <p class="sidebar-note">Messages are saved in this app's local database.</p>
+            </aside>
+
+            <section class="chat-main">
+                <header class="chat-header">
+                    <div>
+                        <h2 id="room-title"># general</h2>
+                        
+                        <p id="room-description" class="subtitle">Welcome to the conversation.</p>
+                            <div class="private-message-control">
+                                <label for="private-recipient">Private message:</label>
+                                <select id="private-recipient">
+                                    <option value="">Group chat</option>
+                                </select>
+                            </div>
+                    </div>
+                    <span class="connection-status" id="connection-status">Connecting…</span>
+                </header>
+
+                <div id="messages" class="messages" aria-live="polite"
+                     aria-label="Chat messages"></div>
+                <p id="typing-status" class="typing-status" aria-live="polite"></p>
+
+                <form id="message-form" class="message-form">
+                    <button id="emoji-btn" class="emoji-btn" type="button"
+                            aria-label="Add emoji" title="Add emoji">☺</button>
+                    <input id="message-input" maxlength="1000"
+                           placeholder="Write a message…" autocomplete="off"
+                           aria-label="Message" required>
+                    <button class="send-btn" type="submit">Send</button>
+                </form>
+                <p class="composer-hint">Enter to send · Keep messages respectful</p>
+            </section>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="/static/script.js" defer></script>
+</body>
+</html>
